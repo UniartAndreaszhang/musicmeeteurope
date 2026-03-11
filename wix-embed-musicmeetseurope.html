@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Music Meets Europe 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  background:#0A0A14;
+  color:#F5EFE0;
+  font-family:'Cormorant Garamond',serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+:root {
+  --gold:#C9A84C;
+  --gold-light:#E8D08A;
+  --deep:#0A0A14;
+  --navy:#0D1528;
+  --cream:#F5EFE0;
+  --silver:#C8D0DC;
+  --route-a:#C9A84C;
+  --route-b:#5C8BB8;
+}
+
+/* ── HERO ── */
+.hero {
+  position:relative;
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  padding:6rem 2rem 5rem;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(201,168,76,.06) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 80%,rgba(92,139,184,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 80%,rgba(201,168,76,.06) 0%,transparent 60%),
+    linear-gradient(170deg,#0A0A14 0%,#0D1528 50%,#0A0A14 100%);
+}
+.staff-lines {
+  position:absolute; inset:0; pointer-events:none; overflow:hidden; opacity:.07;
+}
+.staff-lines::before {
+  content:'';
+  position:absolute; left:-10%; right:-10%; top:30%; height:200px;
+  background:repeating-linear-gradient(to bottom,transparent 0,transparent 30px,var(--gold) 30px,var(--gold) 31px);
+}
+.note {
+  position:absolute; font-size:2rem; color:var(--gold);
+  opacity:0; animation:floatNote 8s ease-in-out infinite; pointer-events:none;
+}
+.note:nth-child(1){left:8%;top:20%;animation-delay:0s;font-size:1.4rem}
+.note:nth-child(2){right:10%;top:30%;animation-delay:1.5s}
+.note:nth-child(3){left:15%;bottom:30%;animation-delay:3s;font-size:1.8rem}
+.note:nth-child(4){right:18%;bottom:25%;animation-delay:4.5s;font-size:1.2rem}
+.note:nth-child(5){left:45%;top:15%;animation-delay:2s;font-size:1.6rem}
+@keyframes floatNote{
+  0%{opacity:0;transform:translateY(20px) rotate(-10deg)}
+  20%{opacity:.35}
+  80%{opacity:.2}
+  100%{opacity:0;transform:translateY(-60px) rotate(15deg)}
+}
+.hero-eyebrow {
+  font-family:'Montserrat',sans-serif;
+  font-size:.65rem; font-weight:600;
+  letter-spacing:.35em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.8rem;
+  opacity:0; animation:fadeUp 1s .3s forwards;
+  position:relative; z-index:1;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,8vw,8rem);
+  font-weight:900; line-height:.9;
+  letter-spacing:-.02em; color:var(--cream);
+  opacity:0; animation:fadeUp 1s .5s forwards;
+  position:relative; z-index:1;
+}
+.hero-title em { font-style:italic; color:var(--gold); display:block; }
+.hero-divider {
+  width:120px; height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:2rem auto;
+  opacity:0; animation:fadeUp 1s .7s forwards;
+  position:relative; z-index:1;
+}
+.hero-subtitle {
+  font-size:1.2rem; font-weight:300;
+  color:var(--silver); line-height:1.8; max-width:560px;
+  opacity:0; animation:fadeUp 1s .9s forwards;
+  position:relative; z-index:1;
+}
+.hero-year {
+  position:absolute; right:4%; bottom:4%;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(4rem,8vw,7rem); font-weight:900;
+  color:rgba(201,168,76,.06); line-height:1;
+  letter-spacing:-.04em; user-select:none; pointer-events:none;
+}
+.hero-edition {
+  position:absolute; left:4%; bottom:5%;
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:500;
+  letter-spacing:.25em; text-transform:uppercase;
+  color:rgba(201,168,76,.5);
+  writing-mode:vertical-rl;
+  opacity:0; animation:fadeUp 1s 1.2s forwards;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── ABOUT ── */
+.about {
+  padding:6rem 5% 6rem;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:5rem; max-width:1300px; margin:0 auto;
+  align-items:center;
+}
+@media(max-width:768px){.about{grid-template-columns:1fr;gap:2rem;}}
+.about-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:.62rem; font-weight:600;
+  letter-spacing:.3em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.2rem;
+}
+.about-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3vw,3rem);
+  font-weight:700; line-height:1.2; color:var(--cream); margin-bottom:1.5rem;
+}
+.about-title em{font-style:italic;color:var(--gold);}
+.about-text{font-size:1.1rem;font-weight:300;color:var(--silver);line-height:1.9;margin-bottom:1.2rem;}
+.about-stats{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1.5rem; margin-top:2.5rem;
+  border-top:1px solid rgba(201,168,76,.2); padding-top:2rem;
+}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem; font-weight:700; color:var(--gold); line-height:1; margin-bottom:.3rem;
+}
+.stat-label{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--silver);
+}
+.about-frame{
+  width:100%; aspect-ratio:3/4; max-height:500px;
+  background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(13,21,40,.9));
+  border:1px solid rgba(201,168,76,.25);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.about-frame::before{
+  content:''; position:absolute; inset:15px;
+  border:1px solid rgba(201,168,76,.12);
+}
+.frame-symbol{font-size:6rem;opacity:.12;color:var(--gold);animation:rotateSlow 20s linear infinite;}
+@keyframes rotateSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.about-badge{
+  position:absolute; top:-1.2rem; right:-1.2rem;
+  width:90px; height:90px; border-radius:50%;
+  background:var(--gold);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow:0 0 35px rgba(201,168,76,.4);
+}
+.badge-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#0A0A14;line-height:1;}
+.badge-text{font-family:'Montserrat',sans-serif;font-size:.45rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0A0A14;text-align:center;line-height:1.4;}
+
+/* ── ROUTES ── */
+.routes-section{
+  padding:5rem 0 7rem;
+  background:linear-gradient(180deg,var(--deep) 0%,var(--navy) 50%,var(--deep) 100%);
+}
+.section-header{text-align:center;padding:0 5% 4rem;}
+.section-eyebrow{
+  font-family:'Montserrat',sans-serif;
+  font-size:.62rem; font-weight:600;
+  letter-spacing:.35em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1rem; display:block;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.8rem);
+  font-weight:700; color:var(--cream); line-height:1.1;
+}
+.section-title em{font-style:italic;color:var(--gold);}
+.routes-grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  max-width:1300px; margin:0 auto;
+  padding:0 5%; gap:2.5rem;
+}
+@media(max-width:768px){.routes-grid{grid-template-columns:1fr;}}
+.route-card{position:relative;overflow:hidden;transition:transform .4s;}
+.route-card:hover{transform:translateY(-5px);}
+.route-card-inner{padding:3.5rem;border:1px solid rgba(255,255,255,.08);height:100%;position:relative;}
+.route-card.route-a .route-card-inner{
+  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(10,10,20,.95) 60%);
+  border-color:rgba(201,168,76,.3);
+}
+.route-card.route-b .route-card-inner{
+  background:linear-gradient(135deg,rgba(92,139,184,.12),rgba(10,10,20,.95) 60%);
+  border-color:rgba(92,139,184,.3);
+}
+.route-card-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.route-a .route-card-inner::before{background:linear-gradient(to right,transparent,var(--gold),transparent);}
+.route-b .route-card-inner::before{background:linear-gradient(to right,transparent,#5C8BB8,transparent);}
+.route-tag{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:700;
+  letter-spacing:.3em; text-transform:uppercase;
+  padding:.4rem 1rem;
+  display:inline-block; margin-bottom:1.8rem;
+}
+.route-a .route-tag{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.4);}
+.route-b .route-tag{background:rgba(92,139,184,.15);color:#8BB8E8;border:1px solid rgba(92,139,184,.4);}
+.route-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,2.5vw,2.4rem);
+  font-weight:700; line-height:1.1; color:var(--cream); margin-bottom:.4rem;
+}
+.route-a .route-name em{color:var(--gold);}
+.route-b .route-name em{color:#8BB8E8;}
+.route-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-style:italic; color:var(--silver);
+  margin-bottom:2rem; font-weight:300;
+}
+.city-path{display:flex;align-items:center;margin-bottom:2.5rem;flex-wrap:wrap;}
+.city-stop{display:flex;flex-direction:column;align-items:center;flex:1;min-width:70px;}
+.city-dot{width:10px;height:10px;border-radius:50%;margin-bottom:.7rem;box-shadow:0 0 10px currentColor;}
+.route-a .city-dot{background:var(--gold);color:var(--gold);}
+.route-b .city-dot{background:#5C8BB8;color:#5C8BB8;}
+.city-name{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--cream); text-align:center;
+}
+.city-country{font-family:'Cormorant Garamond',serif;font-size:.8rem;color:var(--silver);font-style:italic;}
+.city-connector{
+  flex:1; height:1px; min-width:15px; margin-bottom:1.6rem;
+  background:repeating-linear-gradient(to right,rgba(201,168,76,.4) 0,rgba(201,168,76,.4) 4px,transparent 4px,transparent 8px);
+}
+.route-b .city-connector{
+  background:repeating-linear-gradient(to right,rgba(92,139,184,.4) 0,rgba(92,139,184,.4) 4px,transparent 4px,transparent 8px);
+}
+.route-desc{font-size:1.05rem;font-weight:300;color:var(--silver);line-height:1.8;margin-bottom:2rem;}
+.route-highlights{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem;}
+.highlight-item{display:flex;align-items:flex-start;gap:.8rem;font-size:1rem;color:var(--silver);}
+.route-a .highlight-icon{color:var(--gold);}
+.route-b .highlight-icon{color:#8BB8E8;}
+.route-cta{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:.68rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  text-decoration:none; padding:1rem 2rem; transition:all .3s;
+}
+.route-a .route-cta{background:var(--gold);color:#0A0A14;}
+.route-a .route-cta:hover{background:var(--gold-light);box-shadow:0 6px 30px rgba(201,168,76,.4);}
+.route-b .route-cta{background:#5C8BB8;color:#fff;}
+.route-b .route-cta:hover{background:#7AA8D4;box-shadow:0 6px 30px rgba(92,139,184,.4);}
+.route-bg-num{
+  position:absolute;right:1.5rem;bottom:1.5rem;
+  font-family:'Playfair Display',serif;
+  font-size:8rem; font-weight:900; line-height:1;
+  user-select:none; pointer-events:none; opacity:.04; color:var(--cream);
+}
+
+/* ── MAP ── */
+.map-strip{
+  background:var(--navy);
+  padding:5rem 5%;
+  text-align:center;
+  border-top:1px solid rgba(201,168,76,.1);
+  border-bottom:1px solid rgba(201,168,76,.1);
+}
+.map-container{max-width:860px;margin:2.5rem auto 0;}
+.europe-map-svg{width:100%;height:auto;}
+
+/* ── EVENTS ── */
+.events-section{padding:6rem 5%;max-width:1300px;margin:0 auto;}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3rem;}
+@media(max-width:900px){.events-grid{grid-template-columns:1fr;}}
+@media(min-width:601px) and (max-width:900px){.events-grid{grid-template-columns:1fr 1fr;}}
+.event-card{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(201,168,76,.15);
+  overflow:hidden; transition:all .3s;
+}
+.event-card:hover{
+  border-color:rgba(201,168,76,.4);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+  transform:translateY(-4px);
+}
+.event-img{
+  width:100%; aspect-ratio:4/3;
+  background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(13,21,40,.9));
+  display:flex; align-items:center; justify-content:center;
+  font-size:3rem; color:rgba(201,168,76,.2);
+}
+.event-body{padding:1.8rem;}
+.event-date{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:.7rem;
+}
+.event-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem; font-weight:600; color:var(--cream); line-height:1.3; margin-bottom:.5rem;
+}
+.event-location{font-size:.9rem;color:var(--silver);font-style:italic;}
+.event-link{
+  display:inline-block; margin-top:1.3rem;
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); text-decoration:none;
+  border-bottom:1px solid rgba(201,168,76,.3); padding-bottom:2px;
+  transition:all .3s;
+}
+.event-link:hover{color:var(--gold-light);border-color:var(--gold);}
+
+/* ── CONTACT ── */
+.contact-section{
+  background:linear-gradient(180deg,var(--deep) 0%,#060610 100%);
+  padding:7rem 5% 4rem;
+  border-top:1px solid rgba(201,168,76,.12);
+}
+.contact-inner{max-width:680px;margin:0 auto;text-align:center;}
+.contact-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3vw,3rem); font-weight:700; color:var(--cream); margin-bottom:.8rem;
+}
+.contact-title em{font-style:italic;color:var(--gold);}
+.contact-sub{font-size:1.05rem;color:var(--silver);margin-bottom:2.5rem;}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:left;}
+.form-full{grid-column:1/-1;}
+.form-group label{
+  display:block;
+  font-family:'Montserrat',sans-serif;
+  font-size:.58rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--silver); margin-bottom:.4rem;
+}
+.form-group input,
+.form-group textarea{
+  width:100%;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,168,76,.2);
+  padding:.85rem 1.1rem; color:var(--cream);
+  font-family:'Cormorant Garamond',serif; font-size:1rem;
+  outline:none; transition:border-color .3s;
+}
+.form-group input:focus,
+.form-group textarea:focus{border-color:var(--gold);}
+.form-group textarea{min-height:110px;resize:vertical;}
+.form-submit{grid-column:1/-1;text-align:center;margin-top:.8rem;}
+.btn-gold{
+  font-family:'Montserrat',sans-serif;
+  font-size:.68rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase;
+  background:transparent; border:1px solid var(--gold); color:var(--gold);
+  padding:1rem 3rem; cursor:pointer; transition:all .3s;
+}
+.btn-gold:hover{background:var(--gold);color:#0A0A14;box-shadow:0 6px 28px rgba(201,168,76,.3);}
+@media(max-width:600px){.contact-form{grid-template-columns:1fr;}}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 5%;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem;
+  background:#0A0A14;
+}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold);}
+.footer-links{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.footer-links a{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem; letter-spacing:.15em; text-transform:uppercase;
+  color:rgba(200,208,220,.5); text-decoration:none; transition:color .3s;
+}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-family:'Montserrat',sans-serif;font-size:.58rem;color:rgba(200,208,220,.3);letter-spacing:.1em;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="staff-lines"></div>
+  <span class="note">♩</span>
+  <span class="note">♪</span>
+  <span class="note">♫</span>
+  <span class="note">♬</span>
+  <span class="note">𝄞</span>
+
+  <div class="hero-eyebrow">International Music Festival 2026 · Est. 2011</div>
+  <h1 class="hero-title">Music<br><em>Meets Europe</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">Where the universal language of music transcends borders — connecting China and Europe through two unforgettable concert journeys.</p>
+
+  <div class="hero-year">2026</div>
+  <div class="hero-edition">XI Edition · Cultural Exchange</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="about-label">About the Festival</div>
+    <h2 class="about-title">A Decade of <em>Musical Dialogue</em> Between Two Worlds</h2>
+    <p class="about-text">Since 2011, the Europe–China Arts Festival — now officially renamed Music Meets Europe — has successfully held ten editions, becoming an important platform for cultural exchange between China and Europe.</p>
+    <p class="about-text">In 2026, Music Meets Europe will travel across Europe, offering participants the unique opportunity to perform in world-renowned cultural cities, building friendships across borders through the power of music.</p>
+    <div class="about-stats">
+      <div><div class="stat-num">10+</div><div class="stat-label">Editions</div></div>
+      <div><div class="stat-num">6</div><div class="stat-label">Cities</div></div>
+      <div><div class="stat-num">2</div><div class="stat-label">Routes</div></div>
+    </div>
+  </div>
+  <div style="position:relative;">
+    <div class="about-frame"><div class="frame-symbol">𝄞</div></div>
+    <div class="about-badge"><div class="badge-num">XI</div><div class="badge-text">Edition<br>2026</div></div>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section class="routes-section" id="routes">
+  <div class="section-header">
+    <span class="section-eyebrow">Choose Your Journey</span>
+    <h2 class="section-title">Two <em>Iconic Routes</em> Across Europe</h2>
+  </div>
+  <div class="routes-grid">
+
+    <!-- Route A -->
+    <div class="route-card route-a">
+      <div class="route-card-inner">
+        <div class="route-tag">Route A · Western Europe</div>
+        <h3 class="route-name">Brussels · Amsterdam<br><em>· Paris</em></h3>
+        <p class="route-subtitle">The Grand Capitals of Culture & Art</p>
+        <div class="city-path">
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Brussels</div><div class="city-country">Belgium</div></div>
+          <div class="city-connector"></div>
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Amsterdam</div><div class="city-country">Netherlands</div></div>
+          <div class="city-connector"></div>
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Paris</div><div class="city-country">France</div></div>
+        </div>
+        <p class="route-desc">Journey through the heart of Western Europe — from Brussels' grand squares to Amsterdam's golden concert halls and Paris' legendary stages.</p>
+        <div class="route-highlights">
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>Performances at prestigious concert halls and cultural venues</span></div>
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>Immersive cultural exchange programmes and workshops</span></div>
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>Guided tours of UNESCO World Heritage Sites</span></div>
+        </div>
+        <a href="mailto:info@musicmeetseurope.eu" class="route-cta">Enquire About Route A →</a>
+        <div class="route-bg-num">A</div>
+      </div>
+    </div>
+
+    <!-- Route B -->
+    <div class="route-card route-b">
+      <div class="route-card-inner">
+        <div class="route-tag">Route B · Eastern Europe</div>
+        <h3 class="route-name">Belgrade · Budapest<br><em>· Vienna</em></h3>
+        <p class="route-subtitle">The Classical Heart of Central Europe</p>
+        <div class="city-path">
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Belgrade</div><div class="city-country">Serbia</div></div>
+          <div class="city-connector"></div>
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Budapest</div><div class="city-country">Hungary</div></div>
+          <div class="city-connector"></div>
+          <div class="city-stop"><div class="city-dot"></div><div class="city-name">Vienna</div><div class="city-country">Austria</div></div>
+        </div>
+        <p class="route-desc">Follow the Danube through the soul of classical Europe — from Belgrade's vibrant energy to Budapest's splendour and Vienna, the eternal city of Mozart and Strauss.</p>
+        <div class="route-highlights">
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>The International Johann Strauss Festival in Vienna</span></div>
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>Chinese New Year Gala Concert in Belgrade</span></div>
+          <div class="highlight-item"><span class="highlight-icon">♦</span><span>Performances in Budapest's world-famous concert venues</span></div>
+        </div>
+        <a href="mailto:info@musicmeetseurope.eu" class="route-cta">Enquire About Route B →</a>
+        <div class="route-bg-num">B</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-strip">
+  <span class="section-eyebrow">Festival Map 2026</span>
+  <div class="map-container">
+    <svg class="europe-map-svg" viewBox="0 0 900 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="900" height="520" fill="rgba(13,21,40,0.6)" rx="4"/>
+      <line x1="0" y1="130" x2="900" y2="130" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <line x1="0" y1="260" x2="900" y2="260" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <line x1="0" y1="390" x2="900" y2="390" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <line x1="225" y1="0" x2="225" y2="520" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <line x1="450" y1="0" x2="450" y2="520" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <line x1="675" y1="0" x2="675" y2="520" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+      <polyline points="280,180 310,130 270,220" stroke="#C9A84C" stroke-width="2.5" stroke-dasharray="8 4" fill="none" opacity="0.8"/>
+      <polyline points="560,280 520,220 490,195" stroke="#5C8BB8" stroke-width="2.5" stroke-dasharray="8 4" fill="none" opacity="0.8"/>
+      <circle cx="280" cy="180" r="10" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="2"/><circle cx="280" cy="180" r="4" fill="#C9A84C"/>
+      <circle cx="280" cy="180" r="16" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.2)" stroke-width="1"><animate attributeName="r" values="10;22;10" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/></circle>
+      <text x="280" y="160" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#C9A84C" letter-spacing="1">BRUSSELS</text>
+      <circle cx="310" cy="130" r="10" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="2"/><circle cx="310" cy="130" r="4" fill="#C9A84C"/>
+      <circle cx="310" cy="130" r="16" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.2)" stroke-width="1"><animate attributeName="r" values="10;22;10" dur="3s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"/></circle>
+      <text x="340" y="128" text-anchor="start" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#C9A84C" letter-spacing="1">AMSTERDAM</text>
+      <circle cx="270" cy="220" r="10" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="2"/><circle cx="270" cy="220" r="4" fill="#C9A84C"/>
+      <circle cx="270" cy="220" r="16" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.2)" stroke-width="1"><animate attributeName="r" values="10;22;10" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+      <text x="240" y="240" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#C9A84C" letter-spacing="1">PARIS</text>
+      <circle cx="560" cy="280" r="10" fill="rgba(92,139,184,0.2)" stroke="#5C8BB8" stroke-width="2"/><circle cx="560" cy="280" r="4" fill="#5C8BB8"/>
+      <circle cx="560" cy="280" r="16" fill="rgba(92,139,184,0.06)" stroke="rgba(92,139,184,0.2)" stroke-width="1"><animate attributeName="r" values="10;22;10" dur="3s" begin="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"/></circle>
+      <text x="590" y="278" text-anchor="start" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#5C8BB8" letter-spacing="1">BELGRADE</text>
+      <circle cx="520" cy="220" r="10" fill="rgba(92,139,184,0.2)" stroke="#5C8BB8" stroke-width="2"/><circle cx="520" cy="220" r="4" fill="#5C8BB8"/>
+      <circle cx="520" cy="220" r="16" fill="rgba(92,139,184,0.06)" stroke="rgba(92,139,184,0.2)" stroke-width="1"><animate attributeName="r" values="10;22;10" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
+      <text x="550" y="218" text-anchor="start" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#5C8BB8" letter-spacing="1">BUDAPEST</text>
+      <circle cx="490" cy="195" r="12" fill="rgba(92,139,184,0.25)" stroke="#5C8BB8" stroke-width="2.5"/><circle cx="490" cy="195" r="5" fill="#5C8BB8"/>
+      <circle cx="490" cy="195" r="18" fill="rgba(92,139,184,0.08)" stroke="rgba(92,139,184,0.2)" stroke-width="1"><animate attributeName="r" values="12;25;12" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/></circle>
+      <text x="458" y="185" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="600" fill="#8BB8E8" letter-spacing="1">VIENNA</text>
+      <line x1="20" y1="461" x2="60" y2="461" stroke="#C9A84C" stroke-width="2.5" stroke-dasharray="8 4" opacity="0.8"/>
+      <text x="70" y="465" font-family="Montserrat,sans-serif" font-size="9" fill="#C9A84C" letter-spacing="1.5">ROUTE A · WESTERN EUROPE</text>
+      <line x1="20" y1="481" x2="60" y2="481" stroke="#5C8BB8" stroke-width="2.5" stroke-dasharray="8 4" opacity="0.8"/>
+      <text x="70" y="485" font-family="Montserrat,sans-serif" font-size="9" fill="#5C8BB8" letter-spacing="1.5">ROUTE B · EASTERN EUROPE</text>
+      <rect x="1" y="1" width="898" height="518" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none" rx="3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section" id="events">
+  <span class="section-eyebrow">Upcoming Events</span>
+  <h2 class="section-title" style="text-align:left;font-size:clamp(2rem,3vw,3rem);margin-bottom:0;">Featured <em>Concerts</em></h2>
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="event-img">𝄞</div>
+      <div class="event-body">
+        <div class="event-date">February 4, 2026 · Route B</div>
+        <h3 class="event-title">International Johann Strauss Festival</h3>
+        <p class="event-location">Vienna, Austria</p>
+        <a href="https://www.musicmeetseurope.eu/event-details/the-international-johann-strauss-festival-2026-vienna" class="event-link" target="_blank">View Details →</a>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-img">♬</div>
+      <div class="event-body">
+        <div class="event-date">February 3, 2026 · Route B</div>
+        <h3 class="event-title">Johann Strauss Festival — Chinesisches Neujahrskonzert</h3>
+        <p class="event-location">Mürzzuschlag, Austria</p>
+        <a href="https://www.musicmeetseurope.eu/event-details/the-international-johann-strauss-festival-chinesisches-neujahrskonzert" class="event-link" target="_blank">View Details →</a>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-img">♪</div>
+      <div class="event-body">
+        <div class="event-date">January 31, 2026 · Route B</div>
+        <h3 class="event-title">Music Meets Europe Gala Concert — Chinese New Year</h3>
+        <p class="event-location">Belgrade, Serbia</p>
+        <a href="https://www.musicmeetseurope.eu/event-details/music-meets-europe-gala-concert-celebrating-the-chinese-new-year" class="event-link" target="_blank">View Details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title">Join the <em>Journey</em></h2>
+    <p class="contact-sub">Reach out to learn more about participation, routes, and upcoming performances.</p>
+    <div class="contact-form">
+      <div class="form-group"><label>First Name</label><input type="text" placeholder="Your first name"/></div>
+      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Your last name"/></div>
+      <div class="form-group"><label>Email *</label><input type="email" placeholder="your@email.com"/></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 000 000 0000"/></div>
+      <div class="form-group form-full"><label>Message *</label><textarea placeholder="Tell us about your interest in Music Meets Europe 2026…"></textarea></div>
+      <div class="form-submit"><button class="btn-gold">Send Message</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Music Meets Europe</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#routes">Routes</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="mailto:info@musicmeetseurope.eu">info@musicmeetseurope.eu</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Music Meets Europe. All rights reserved.</div>
+</footer>
+
+<script>
+// Auto-resize iframe height (tells Wix parent the content height)
+function sendHeight() {
+  var h = document.body.scrollHeight;
+  window.parent.postMessage({ type: 'wix-iframe-height', height: h }, '*');
+}
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
+setInterval(sendHeight, 800);
+</script>
+</body>
+</html>
