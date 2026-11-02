@@ -41,7 +41,9 @@ a { color: inherit; }
 .brand {
   color: var(--red); text-decoration: none;
   font-weight: 600; font-size: 1.05rem; letter-spacing: -0.03em;
+  display: flex; align-items: center; line-height: 0;
 }
+.brand img { height: 58px; width: auto; display: block; }
 .nav-list { display: flex; flex-wrap: wrap; gap: .35rem 1.35rem; list-style: none; }
 .nav-list a {
   color: var(--red); text-decoration: none; font-weight: 500; font-size: .95rem;
@@ -54,10 +56,10 @@ a { color: inherit; }
   color: #fff; background: #1c1c1c; overflow: hidden;
 }
 section[id] { scroll-margin-top: 4.6rem; }
-.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
 .hero-shade {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.18) 42%, rgba(0,0,0,.12) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 26%, rgba(0,0,0,.08) 52%, rgba(0,0,0,.18) 100%);
 }
 .hero-copy { position: relative; z-index: 1; padding: 4.5rem 6vw 1.2rem; }
 .hero-kicker {
@@ -204,7 +206,8 @@ section[id] { scroll-margin-top: 4.6rem; }
   .hero h1 { max-width: 7.2em; }
   .intro { padding-top: 2.8rem; }
   .facts { gap: 1.4rem 1.8rem; }
-  .site-header { padding: .9rem 5vw; }
+  .site-header { padding: .75rem 5vw; }
+  .brand img { height: 44px; }
   .hero-credit { align-self: stretch; text-align: left; margin: 0; padding: 0 6vw .9rem; max-width: none; }
 }
 </style>
@@ -399,7 +402,12 @@ section[id] { scroll-margin-top: 4.6rem; }
     var description = document.querySelector('meta[name="description"]');
     if (description) description.setAttribute("content", hero.subtitle || programme.tagline || document.title);
 
-    document.getElementById("brand").textContent = programme.festival || "";
+    var brand = document.getElementById("brand");
+    if (programme.logo) {
+      brand.innerHTML = '<img src="' + escapeHtml(asset(programme.logo)) + '" alt="' + escapeHtml(programme.festival || "Music Meets Europe") + '">';
+    } else {
+      brand.textContent = programme.festival || "";
+    }
     document.getElementById("nav").innerHTML = (programme.nav || []).map(function (item) {
       return '<li><a href="' + escapeHtml(item.href || "#") + '">' + escapeHtml(item.label || "") + "</a></li>";
     }).join("");
@@ -412,9 +420,15 @@ section[id] { scroll-margin-top: 4.6rem; }
       heroImage.removeAttribute("src");
       heroImage.alt = "";
     }
+    if (hero.imagePosition && /^[a-z0-9%.\s-]+$/i.test(hero.imagePosition)) {
+      heroImage.style.objectPosition = hero.imagePosition;
+    }
     document.getElementById("hero-eyebrow").textContent = hero.eyebrow || "";
     document.getElementById("hero-title").textContent = [hero.titleLead, hero.titleEm].filter(Boolean).join(" ");
-    document.getElementById("hero-credit").innerHTML = creditHtml(hero.credit);
+    var heroCredit = document.getElementById("hero-credit");
+    var heroCreditHtml = creditHtml(hero.credit);
+    heroCredit.innerHTML = heroCreditHtml;
+    heroCredit.hidden = !heroCreditHtml;
 
     document.getElementById("intro-lead").textContent = hero.subtitle || [programme.tagline, programme.bond].filter(Boolean).join(" ");
     var labels = about.stats || {};

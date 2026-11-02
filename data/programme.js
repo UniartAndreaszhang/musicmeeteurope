@@ -20,6 +20,8 @@
 (function (root) {
   root.MME_PROGRAMME = {
     festival: "Music Meets Europe",
+    /* Horizontal logo in the header. SVG stays sharp on the white bar. */
+    logo: "images/mme-logo.svg",
     year: 2027,
     established: 2011,
     contactEmail: "info@musicmeetseurope.eu",
@@ -35,16 +37,9 @@
       titleEm: "Meets Europe",
       subtitle: "Music connecting generations and cultures — a bond of friendship and exchange.",
       editionNote: "2027 programme",
-      image: "images/halls/musikverein-golden-hall.jpg",
-      imageAlt: "The Golden Hall of the Musikverein in Vienna",
-      credit: {
-        author: "Clemens Pfeiffer",
-        authorUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
-        licence: "CC BY-SA 3.0",
-        licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
-        sourceName: "Wikimedia Commons",
-        sourceUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
-      },
+      image: "images/hero-musikverein.webp",
+      imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
+      imagePosition: "center 42%",
     },
 
     about: {

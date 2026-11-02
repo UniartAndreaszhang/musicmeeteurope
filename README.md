@@ -43,6 +43,8 @@ What to edit:
 
 Pictures already in the repository:
 
+- `logo` — header logo, currently `images/mme-logo.svg`
+- `hero.image` — the large cover photograph. `hero.imagePosition` shifts the crop (for example `center 42%`). Leave `hero.credit` empty when the photograph is the festival’s own.
 - `images/summer-route-2027.png` — summer route map
 - `images/programme-poster-2027.jpg` — 2027 poster
 - `images/halls/` — one freely licensed photograph for each confirmed hall, with the credit stored on that card
@@ -109,6 +111,8 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 
 仓库里已有的图片：
 
+- `logo` — 页眉标志，目前是 `images/mme-logo.svg`
+- `hero.image` — 大封面照片。`hero.imagePosition` 调整裁切位置（例如 `center 42%`）。如果是音乐节自己的照片，把 `hero.credit` 留空。
 - `images/summer-route-2027.png` — 夏季路线图
 - `images/programme-poster-2027.jpg` — 2027 海报
 - `images/halls/` — 每个已确认场馆各一张可自由使用的照片，署名写在对应卡片的 `credit` 里
