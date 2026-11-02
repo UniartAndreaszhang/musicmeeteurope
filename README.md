@@ -36,7 +36,7 @@ What to edit:
 - `contactEmail` — every enquiry link and the address in the footer.
 - `hero`, `about`, `tagline`, `bond`, `contact` — the sentences.
 - `sessions` — one block per session. Each block has the label (`tag`), the lines of the title (`titleLines`), the date line (`dateLabel`), the cities in order, a short `description`, and `highlights` (the halls and dates you want listed).
-- `events` — one card per hall or city. `when` may contain a line break. Set `image` to `""` when you have no photograph.
+- `events` — one card per hall or city. `when` may contain a line break. `description` is the short text under the place name. Set `image` to `""` when you have no photograph. If there is a photograph, keep the `credit` block (author, licence, and links). The page prints it under the card. Do not remove it, and do not add a hall name for Mürzzuschlag or Bratislava until one is confirmed.
 - `map` and `poster` — the route picture and the programme poster.
 - `venuePhotos` — extra hall photographs. An empty list hides that block.
 - `nav` — the footer links.
@@ -45,7 +45,7 @@ Pictures already in the repository:
 
 - `images/summer-route-2027.png` — summer route map
 - `images/programme-poster-2027.jpg` — 2027 poster
-- `images/petit-palau-stage.jpg` and `images/petit-palau-hall.jpg` — Petit Palau, Barcelona
+- `images/halls/` — one freely licensed photograph for each confirmed hall, with the credit stored on that card
 - `logo 1.mp4` — the film in the About section (`about.video`)
 
 To use a new picture: upload the file into the repository (the `images/` folder is the simplest place), commit it, and set the path in `programme.js`, for example `"images/my-photo.jpg"`. Paths are from the site root, not from your computer.
@@ -102,7 +102,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 - `contactEmail`：所有咨询链接和页脚邮箱。
 - `hero`、`about`、`tagline`、`bond`、`contact`：主要句子。
 - `sessions`：每一场一个大括号。`tag` 是角标，`titleLines` 是标题的每一行，`dateLabel` 是日期，`cities` 是按顺序排列的城市，`description` 是短介绍，`highlights` 是要列出的场馆和日期。
-- `events`：每个场馆或城市一张卡片。`when` 里可以换行。没有照片时把 `image` 写成 `""`。
+- `events`：每个场馆或城市一张卡片。`when` 里可以换行。`description` 是地名下面的短介绍。没有照片时把 `image` 写成 `""`。有照片时请保留 `credit`（作者、许可和链接），页面会在卡片下显示这一行，不要删掉。米尔茨楚施拉格和布拉迪斯拉发在场馆确认之前，不要自行补上场馆名称。
 - `map`、`poster`：路线图和节目海报。
 - `venuePhotos`：额外的场馆照片。写成空列表 `[]` 就会隐藏这一块。
 - `nav`：页脚链接。
@@ -111,7 +111,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 
 - `images/summer-route-2027.png` — 夏季路线图
 - `images/programme-poster-2027.jpg` — 2027 海报
-- `images/petit-palau-stage.jpg`、`images/petit-palau-hall.jpg` — 巴塞罗那 Petit Palau
+- `images/halls/` — 每个已确认场馆各一张可自由使用的照片，署名写在对应卡片的 `credit` 里
 - `logo 1.mp4` — 「关于」一节里的影片（`about.video`）
 
 换新图片：先把文件上传到仓库（放在 `images/` 最省事）并提交，再在 `programme.js` 里写路径，例如 `"images/my-photo.jpg"`。路径从网站根目录算起，不要写自己电脑上的文件夹。

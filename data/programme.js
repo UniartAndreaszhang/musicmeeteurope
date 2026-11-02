@@ -165,49 +165,100 @@
     },
 
     /*
-      One card per hall or city stop. `when` may use a new line.
-      image may be "" when there is no photograph yet.
+      One card per confirmed hall, then any city whose hall is not confirmed yet.
+      Do not add a hall name or a photograph for Mürzzuschlag or Bratislava until
+      the festival confirms them.
+      `when` may use a new line. `description` is one or two sentences.
+      `image` may be "" when there is no photograph.
+      If `image` is set, keep `credit`: author, licence name, and the three links.
+      The page prints that credit under the card. Do not delete it.
     */
     events: [
       {
         when: "13 July 2027\nSpain & France",
         title: "Petit Palau",
         location: "Palau de la Música Catalana, Barcelona",
-        image: "images/petit-palau-stage.jpg",
-        imageAlt: "Petit Palau in Barcelona, looking toward the stage and the red chairs",
+        description: "The chamber hall of the Palau de la Música Catalana. The Spain and France session opens here on 13 July.",
+        image: "images/halls/petit-palau-barcelona.jpg",
+        imageAlt: "Petit Palau in Barcelona, with the stage, a piano, and rows of seats",
+        credit: {
+          author: "Josep Renalias",
+          authorUrl: "https://commons.wikimedia.org/wiki/File:Palau_de_la_M%C3%BAsica_-_Petit_Palau.JPG",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Palau_de_la_M%C3%BAsica_-_Petit_Palau.JPG",
+        },
       },
       {
         when: "14 July 2027\nWestern Europe",
         title: "Muziekgebouw aan 't IJ",
         location: "Amsterdam, Netherlands",
-        image: "",
-        imageAlt: "",
+        description: "The concert hall on the IJ in Amsterdam. Western Europe plays here on 14 July.",
+        image: "images/halls/muziekgebouw-amsterdam.jpg",
+        imageAlt: "The concert hall of Muziekgebouw aan 't IJ in Amsterdam",
+        credit: {
+          author: "Jorge Royan",
+          authorUrl: "https://www.royan.com.ar",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Muziekgebouw_-_0408.jpg",
+        },
       },
       {
         when: "16 July 2027\nWestern Europe",
         title: "Flagey",
         location: "Brussels, Belgium",
-        image: "",
-        imageAlt: "",
+        description: "Studio 4 at Flagey, in the former Belgian radio building in Brussels. Western Europe, 16 July.",
+        image: "images/halls/flagey-brussels.jpg",
+        imageAlt: "Studio 4 at Flagey in Brussels, with the organ and the empty stage",
+        credit: {
+          author: "Zinneke",
+          authorUrl: "https://commons.wikimedia.org/wiki/File:Flagey_interior_2013-09_--11.jpg",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Flagey_interior_2013-09_--11.jpg",
+        },
       },
       {
         when: "18 July 2027\nSpain & France · Western Europe",
         title: "Maison de la Radio et de la Musique",
         location: "Radio France, Paris",
-        image: "",
-        imageAlt: "",
+        description: "The auditorium of Radio France in Paris. The Spain and France and Western Europe sessions share this concert on 18 July.",
+        image: "images/halls/radio-france-paris.jpg",
+        imageAlt: "The auditorium of Radio France in Paris during a concert",
+        credit: {
+          author: "Christophe Abramowitz / Radio France",
+          authorUrl: "https://commons.wikimedia.org/wiki/File:Auditorium_de_Radio_France.jpg",
+          licence: "CC BY-SA 4.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Auditorium_de_Radio_France.jpg",
+        },
       },
       {
         when: "28–31 January 2027 · Winter Session\n29 July 2027 · Eastern Europe",
         title: "Croatian National Theatre",
         location: "Zagreb, Croatia",
-        image: "",
-        imageAlt: "",
+        description: "The main house of the Croatian National Theatre in Zagreb. Winter Session, 28–31 January, and Eastern Europe on 29 July.",
+        image: "images/halls/croatian-national-theatre-zagreb.jpg",
+        imageAlt: "The stage and auditorium of the Croatian National Theatre in Zagreb",
+        credit: {
+          author: "Bernard Gagnon",
+          authorUrl: "https://commons.wikimedia.org/wiki/File:Interior_of_Croatian_National_Theater,_Zagreb_07.jpg",
+          licence: "CC BY-SA 4.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Interior_of_Croatian_National_Theater,_Zagreb_07.jpg",
+        },
       },
       {
         when: "28–31 January 2027\nWinter Session",
         title: "Mürzzuschlag",
         location: "Austria",
+        description: "A stop on the winter route, 28–31 January. No hall is confirmed for Mürzzuschlag yet.",
         image: "",
         imageAlt: "",
       },
@@ -215,6 +266,7 @@
         when: "29 July – 1 August 2027\nEastern Europe",
         title: "Bratislava",
         location: "Slovakia",
+        description: "A city on the Eastern Europe route, 29 July – 1 August. No hall is confirmed for Bratislava yet.",
         image: "",
         imageAlt: "",
       },
@@ -222,29 +274,29 @@
         when: "28–31 January 2027 · Winter Session\n31 July – 1 August 2027 · Eastern Europe",
         title: "Musikverein, Golden Hall",
         location: "Vienna, Austria",
-        image: "",
-        imageAlt: "",
+        description: "The Großer Saal of the Musikverein in Vienna. Winter Session, 28–31 January, and Eastern Europe, 31 July – 1 August.",
+        image: "images/halls/musikverein-golden-hall.jpg",
+        imageAlt: "The Golden Hall of the Musikverein in Vienna, looking toward the organ",
+        credit: {
+          author: "Clemens Pfeiffer",
+          authorUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
+        },
       },
     ],
 
     enquireLabel: "Enquire",
 
+    /* Optional extra photographs. Leave this list empty to hide the block.
+       Hall photographs belong on the cards above, with a credit. */
     venuePhotosIntro: {
-      eyebrow: "Venue",
-      title: "Petit *Palau*, Barcelona",
+      eyebrow: "",
+      title: "",
     },
-    venuePhotos: [
-      {
-        image: "images/petit-palau-stage.jpg",
-        alt: "Petit Palau stage, with a piano and rows of seats",
-        caption: "Petit Palau — the stage",
-      },
-      {
-        image: "images/petit-palau-hall.jpg",
-        alt: "Petit Palau hall from the side, with the balcony and the stage beyond",
-        caption: "Petit Palau — the hall",
-      },
-    ],
+    venuePhotos: [],
 
     contact: {
       title: "Join the *journey*",
