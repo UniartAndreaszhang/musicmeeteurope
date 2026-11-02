@@ -52,9 +52,9 @@ To use a new picture: upload the file into the repository (the `images/` folder 
 
 The three About numbers are calculated. Sessions = how many session blocks there are. Cities = how many different city names appear. Year = `year`. The words next to those numbers are `about.stats` (`sessions`, `cities`, `year`).
 
-Card colour: `"theme": "a"` is gold, `"theme": "b"` is blue.
+The page is a light editorial layout. `"theme"` is ignored, so you do not set a card colour.
 
-Gold italics: put the words between asterisks, as in `*Vienna*`. Do not type HTML tags; they are shown as text.
+Italics: put the words between asterisks, as in `*Vienna*`. Do not type HTML tags; they are shown as text. A session may also have `image` and `imageAlt`; use a picture already credited on a hall card.
 
 To add a session, copy one whole block from `{` through `}`, including the comma, and edit the copy. Two or three cities look best on a card.
 
@@ -118,9 +118,9 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 
 「关于」里的三个数字是自动算的。场次数 = `sessions` 有几段。城市数 = 不重复的城市名有几个。年份 = `year`。数字旁边的文字在 `about.stats`（`sessions`、`cities`、`year`）。
 
-卡片颜色：`"theme": "a"` 是金色，`"theme": "b"` 是蓝色。
+页面是浅色的编辑式版式。`"theme"` 不起作用，不用设置卡片颜色。
 
-金色斜体：把词语放在两个星号中间，例如 `*Vienna*`。不要写 HTML 标签，它们会按普通文字显示。
+斜体：把词语放在两个星号中间，例如 `*Vienna*`。不要写 HTML 标签，它们会按普通文字显示。一场也可以有 `image` 和 `imageAlt`；请用已经在场馆卡片上署过名的照片。
 
 增加一场：复制一整段，从 `{` 到 `}`，连同逗号，再改内容。一张卡片放两到三个城市最合适。
 

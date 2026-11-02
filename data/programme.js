@@ -8,12 +8,12 @@
   - Edit the words inside quotes. Keep the quotes, commas, and brackets.
   - A comma after the last item in a list is fine.
   - Do not delete the line that says: root.MME_PROGRAMME
-  - Text between *asterisks* is shown in gold italics, for example *Vienna*.
+  - Text between *asterisks* is shown in italics, for example *Vienna*.
   - HTML tags are not read as code; they show up as plain text.
   - Image paths start from the site root (the folder that contains index.html),
-    for example "images/petit-palau-stage.jpg".
+    for example "images/halls/petit-palau-barcelona.jpg".
     Upload the picture to the repository first, then put its path here.
-  - theme "a" is a gold card. theme "b" is a blue card.
+  - theme is kept so older notes still parse. The page does not use it for colour.
   - The three numbers in About (sessions, cities, year) are counted from
     this file. Change `year` and the `sessions` list; do not type those totals.
 */
@@ -35,6 +35,16 @@
       titleEm: "Meets Europe",
       subtitle: "Music connecting generations and cultures — a bond of friendship and exchange.",
       editionNote: "2027 programme",
+      image: "images/halls/musikverein-golden-hall.jpg",
+      imageAlt: "The Golden Hall of the Musikverein in Vienna",
+      credit: {
+        author: "Clemens Pfeiffer",
+        authorUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
+        licence: "CC BY-SA 3.0",
+        licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+        sourceName: "Wikimedia Commons",
+        sourceUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
+      },
     },
 
     about: {
@@ -52,7 +62,9 @@
     nav: [
       { label: "About", href: "#about" },
       { label: "Sessions", href: "#routes" },
-      { label: "Stages", href: "#events" },
+      { label: "Halls", href: "#events" },
+      { label: "Route", href: "#map" },
+      { label: "Contact", href: "#contact" },
     ],
 
     sessionsIntro: {
@@ -85,6 +97,8 @@
         ],
         enquireLabel: "Enquire about the Winter Session",
         mark: "XII",
+        image: "images/halls/croatian-national-theatre-zagreb.jpg",
+        imageAlt: "The auditorium of the Croatian National Theatre in Zagreb",
       },
       {
         theme: "b",
@@ -102,6 +116,8 @@
         ],
         enquireLabel: "Enquire about Spain & France",
         mark: "XIII",
+        image: "images/halls/petit-palau-barcelona.jpg",
+        imageAlt: "Petit Palau in Barcelona",
       },
       {
         theme: "a",
@@ -121,6 +137,8 @@
         ],
         enquireLabel: "Enquire about Western Europe",
         mark: "XIII",
+        image: "images/halls/muziekgebouw-amsterdam.jpg",
+        imageAlt: "The concert hall of Muziekgebouw aan 't IJ in Amsterdam",
       },
       {
         theme: "b",
@@ -140,6 +158,8 @@
         ],
         enquireLabel: "Enquire about Eastern Europe",
         mark: "XIII",
+        image: "images/halls/musikverein-golden-hall.jpg",
+        imageAlt: "The Golden Hall of the Musikverein in Vienna",
       },
     ],
 
@@ -160,8 +180,9 @@
     },
 
     eventsIntro: {
-      eyebrow: "Stages and stops",
+      eyebrow: "Stages",
       title: "Where the music *is heard*",
+      pendingTitle: "Stops still to be confirmed",
     },
 
     /*
