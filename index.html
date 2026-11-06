@@ -85,17 +85,9 @@ section[id] { scroll-margin-top: 4.6rem; }
   font-size: clamp(1.7rem, 3.3vw, 2.65rem);
   line-height: 1.28; letter-spacing: -0.02em;
 }
-.facts {
-  display: flex; justify-content: center; flex-wrap: wrap;
-  gap: 2.2rem 3.2rem; margin-top: 2.6rem;
-}
-.fact strong {
-  display: block; color: var(--red); font-weight: 300;
-  font-size: 2.5rem; line-height: 1; letter-spacing: -0.03em;
-}
-.fact span {
-  display: block; margin-top: .35rem;
-  color: var(--red); font-size: .7rem; font-weight: 600;
+.facts-line {
+  margin-top: 1.8rem;
+  color: var(--red); font-weight: 600; font-size: 1.05rem;
   letter-spacing: .14em; text-transform: uppercase;
 }
 
@@ -128,13 +120,23 @@ section[id] { scroll-margin-top: 4.6rem; }
 .cards-3 { grid-template-columns: 1fr 1fr 1fr; }
 .teaser img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; background: #f3f3f3; }
 .teaser-kicker, .teaser-meta { color: var(--red); font-size: .8rem; font-weight: 600; margin-top: .75rem; }
+.teaser h3,
+.place-names,
+.place-names em,
+.teaser-points li,
+.programme-list li {
+  font-size: 1.05rem; font-weight: 600; font-style: normal;
+  letter-spacing: 0; line-height: 1.4;
+}
 .teaser h3 {
-  color: var(--red); font-weight: 600; font-size: 1.22rem;
-  line-height: 1.25; letter-spacing: -0.02em; margin: .2rem 0 .35rem;
+  color: var(--red);
+  margin: .2rem 0 .35rem;
 }
 .teaser-text { color: var(--red); font-size: .95rem; line-height: 1.45; }
 .teaser-points { list-style: none; margin-top: .55rem; }
-.teaser-points li { color: #333; font-size: .9rem; line-height: 1.4; margin-top: .2rem; }
+.teaser-points li { color: #333; margin-top: .2rem; }
+.teaser-photos { display: grid; gap: .45rem; }
+.teaser-photos img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; background: #f3f3f3; }
 .more {
   display: inline-block; margin-top: .75rem;
   color: var(--red); font-weight: 700; font-size: .92rem; text-decoration: none;
@@ -151,9 +153,30 @@ section[id] { scroll-margin-top: 4.6rem; }
   letter-spacing: -0.02em; margin-bottom: 1rem;
 }
 .pending-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
-.pending article h4 { color: var(--red); font-size: 1.15rem; font-weight: 600; }
+.pending article h4 { color: var(--red); font-size: 1.05rem; font-weight: 600; }
 .pending .teaser-meta { margin-top: .2rem; }
 .pending p { color: #333; margin-top: .4rem; }
+
+.programme { padding: 4.2rem 0 2.5rem; }
+.programme h2 {
+  color: var(--red);
+  font-size: clamp(2.8rem, 5.4vw, 4.4rem);
+  font-weight: 400; letter-spacing: -0.035em; line-height: 1.02;
+  margin-bottom: .6rem;
+}
+.programme-lead { color: #333; font-size: 1.12rem; max-width: 40rem; margin-bottom: .4rem; }
+.programme-layout {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: 2.2rem 2.8rem; align-items: start; margin-top: 1.8rem;
+}
+.programme-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2rem; }
+.programme-list h3 {
+  color: var(--red); font-size: 1.35rem; font-weight: 600;
+  letter-spacing: -0.02em; margin: .15rem 0 .45rem;
+}
+.programme-list ul { list-style: none; }
+.programme-list li { color: #1a1a1a; margin-top: .28rem; }
+.programme-poster img { width: 100%; height: auto; display: block; }
 
 .contact { padding-bottom: 4rem; }
 .contact-lead { color: #333; max-width: 36rem; margin-bottom: .4rem; }
@@ -205,7 +228,8 @@ section[id] { scroll-margin-top: 4.6rem; }
   .hero-copy { padding: 2.6rem 6vw .6rem; }
   .hero h1 { max-width: 7.2em; }
   .intro { padding-top: 2.8rem; }
-  .facts { gap: 1.4rem 1.8rem; }
+  .programme h2 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .programme-layout, .programme-list { grid-template-columns: 1fr; }
   .site-header { padding: .75rem 5vw; }
   .brand img { height: 44px; }
   .hero-credit { align-self: stretch; text-align: left; margin: 0; padding: 0 6vw .9rem; max-width: none; }
@@ -233,7 +257,7 @@ section[id] { scroll-margin-top: 4.6rem; }
 
 <section class="intro" aria-labelledby="intro-lead">
   <p class="intro-lead" id="intro-lead"></p>
-  <div class="facts" id="facts"></div>
+  <p class="facts-line" id="facts"></p>
 </section>
 
 <section class="feature" id="about">
@@ -262,14 +286,16 @@ section[id] { scroll-margin-top: 4.6rem; }
   </div>
 </section>
 
-<section class="feature feature-reverse" id="map">
-  <div class="feature-media" id="map-media"></div>
-  <div class="feature-copy" id="map-copy"></div>
-</section>
-
-<section class="feature" id="poster">
-  <div class="feature-media" id="poster-media"></div>
-  <div class="feature-copy" id="poster-copy"></div>
+<section class="programme" id="poster">
+  <div class="wrap">
+    <p class="eyebrow" id="poster-eyebrow"></p>
+    <h2 id="poster-title"></h2>
+    <p class="programme-lead" id="poster-caption"></p>
+    <div class="programme-layout">
+      <div class="programme-list" id="programme-list"></div>
+      <div class="programme-poster" id="poster-media"></div>
+    </div>
+  </div>
 </section>
 
 <section class="section contact" id="contact">
@@ -323,20 +349,6 @@ section[id] { scroll-margin-top: 4.6rem; }
     return base + String(path).split("/").map(function (part) {
       return encodeURIComponent(part);
     }).join("/");
-  }
-
-  function cityCount(sessions) {
-    var seen = {};
-    var count = 0;
-    (sessions || []).forEach(function (session) {
-      (session.cities || []).forEach(function (city) {
-        var key = String(city.name || "").trim().toLowerCase();
-        if (!key || seen[key]) return;
-        seen[key] = true;
-        count += 1;
-      });
-    });
-    return count;
   }
 
   function enquiryHref(programme, label) {
@@ -431,15 +443,7 @@ section[id] { scroll-margin-top: 4.6rem; }
     heroCredit.hidden = !heroCreditHtml;
 
     document.getElementById("intro-lead").textContent = hero.subtitle || [programme.tagline, programme.bond].filter(Boolean).join(" ");
-    var labels = about.stats || {};
-    var stats = [
-      { num: String((programme.sessions || []).length), label: labels.sessions || "Sessions" },
-      { num: String(cityCount(programme.sessions)), label: labels.cities || "Cities" },
-      { num: String(programme.year || ""), label: labels.year || "Year" },
-    ];
-    document.getElementById("facts").innerHTML = stats.map(function (stat) {
-      return '<div class="fact"><strong>' + escapeHtml(stat.num) + "</strong><span>" + escapeHtml(stat.label) + "</span></div>";
-    }).join("");
+    document.getElementById("facts").textContent = about.factsLine || ("Route · " + (programme.year || ""));
 
     var aboutMedia = document.getElementById("about-media");
     if (about.video) {
@@ -457,7 +461,9 @@ section[id] { scroll-margin-top: 4.6rem; }
     document.getElementById("sessions-eyebrow").textContent = sessionsIntro.eyebrow || "";
     document.getElementById("sessions-title").innerHTML = rich(sessionsIntro.title || "");
     document.getElementById("sessions-grid").innerHTML = (programme.sessions || []).map(function (session) {
-      var cities = (session.cities || []).map(function (city) { return city.name; }).filter(Boolean).join(" · ");
+      var places = (session.cities || []).map(function (city) {
+        return escapeHtml(city.name || "");
+      }).filter(Boolean).join(" · ");
       var points = (session.highlights || []).map(function (line) {
         return "<li>" + escapeHtml(line) + "</li>";
       }).join("");
@@ -467,8 +473,8 @@ section[id] { scroll-margin-top: 4.6rem; }
         : "";
       return '<article class="teaser">' + media +
         '<p class="teaser-kicker">' + escapeHtml(session.tag || "") + "</p>" +
-        '<h3>' + (session.titleLines || []).map(rich).join("<br>") + "</h3>" +
-        '<p class="teaser-meta">' + escapeHtml(session.dateLabel || "") + (cities ? " · " + escapeHtml(cities) : "") + "</p>" +
+        '<h3 class="place-names">' + places + "</h3>" +
+        '<p class="teaser-meta">' + escapeHtml(session.dateLabel || "") + "</p>" +
         (session.description ? '<p class="teaser-text">' + escapeHtml(session.description) + "</p>" : "") +
         (points ? '<ul class="teaser-points">' + points + "</ul>" : "") +
         '<a class="more" href="' + escapeHtml(enquiryHref(programme, label)) + '">' + escapeHtml(label) + " →</a>" +
@@ -487,8 +493,12 @@ section[id] { scroll-margin-top: 4.6rem; }
     });
     var enquire = programme.enquireLabel || "Enquire";
     document.getElementById("events-grid").innerHTML = halls.map(function (event) {
-      return '<article class="teaser">' +
-        '<img src="' + escapeHtml(asset(event.image)) + '" alt="' + escapeHtml(event.imageAlt || event.title || "") + '">' +
+      var photos = '<div class="teaser-photos"><img src="' + escapeHtml(asset(event.image)) + '" alt="' + escapeHtml(event.imageAlt || event.title || "") + '">';
+      if (event.secondaryImage) {
+        photos += '<img src="' + escapeHtml(asset(event.secondaryImage)) + '" alt="' + escapeHtml(event.secondaryImageAlt || "") + '">';
+      }
+      photos += "</div>";
+      return '<article class="teaser">' + photos +
         '<p class="teaser-kicker">' + rich(event.when || "") + "</p>" +
         '<h3>' + escapeHtml(event.title || "") + "</h3>" +
         '<p class="teaser-meta">' + escapeHtml(event.location || "") + "</p>" +
@@ -514,24 +524,20 @@ section[id] { scroll-margin-top: 4.6rem; }
         }).join("") + "</div>";
     }
 
-    function featureCopy(block) {
-      if (!block) return "";
-      return (block.eyebrow ? '<p class="eyebrow">' + escapeHtml(block.eyebrow) + "</p>" : "") +
-        "<h2>" + rich(block.title || "") + "</h2>" +
-        (block.caption ? '<p class="caption">' + escapeHtml(block.caption) + "</p>" : "");
-    }
-    function featureMedia(block) {
-      if (!block || !block.image) return "";
-      return '<img src="' + escapeHtml(asset(block.image)) + '" alt="' + escapeHtml(block.alt || "") + '">';
-    }
-    var map = programme.map || {};
     var poster = programme.poster || {};
-    document.getElementById("map-copy").innerHTML = featureCopy(map);
-    document.getElementById("map-media").innerHTML = featureMedia(map);
-    document.getElementById("poster-copy").innerHTML = featureCopy(poster);
-    document.getElementById("poster-media").innerHTML = featureMedia(poster);
-    document.getElementById("map").hidden = !map.image;
-    document.getElementById("poster").hidden = !poster.image;
+    document.getElementById("poster-eyebrow").textContent = poster.eyebrow || "";
+    document.getElementById("poster-title").innerHTML = rich(poster.title || "");
+    document.getElementById("poster-caption").textContent = poster.caption || "";
+    document.getElementById("programme-list").innerHTML = (programme.sessions || []).map(function (session) {
+      var lines = (session.highlights || []).map(function (line) {
+        return "<li>" + escapeHtml(line) + "</li>";
+      }).join("");
+      return "<article><p class=\"eyebrow\">" + escapeHtml(session.tag || "") + "</p>" +
+        "<h3>" + escapeHtml(session.dateLabel || "") + "</h3><ul>" + lines + "</ul></article>";
+    }).join("");
+    document.getElementById("poster-media").innerHTML = poster.image
+      ? '<img src="' + escapeHtml(asset(poster.image)) + '" alt="' + escapeHtml(poster.alt || "") + '">'
+      : "";
 
     document.getElementById("contact-title").innerHTML = rich(contact.title || "");
     document.getElementById("contact-sub").textContent = contact.text || "";

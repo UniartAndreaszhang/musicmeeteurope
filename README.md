@@ -37,7 +37,7 @@ What to edit:
 - `hero`, `about`, `tagline`, `bond`, `contact` — the sentences.
 - `sessions` — one block per session. Each block has the label (`tag`), the lines of the title (`titleLines`), the date line (`dateLabel`), the cities in order, a short `description`, and `highlights` (the halls and dates you want listed).
 - `events` — one card per hall or city. `when` may contain a line break. `description` is the short text under the place name. Set `image` to `""` when you have no photograph. If there is a photograph, keep the `credit` block (author, licence, and links). The page prints it under the card. Do not remove it, and do not add a hall name for Mürzzuschlag or Bratislava until one is confirmed.
-- `map` and `poster` — the route picture and the programme poster.
+- `poster` — the programme heading, the poster picture, and the short note under the heading. The dates-and-halls list is drawn from each session’s `dateLabel` and `highlights`.
 - `venuePhotos` — extra hall photographs. An empty list hides that block.
 - `nav` — the footer links.
 
@@ -45,14 +45,14 @@ Pictures already in the repository:
 
 - `logo` — header logo, currently `images/mme-logo.svg`
 - `hero.image` — the large cover photograph. `hero.imagePosition` shifts the crop (for example `center 42%`). Leave `hero.credit` empty when the photograph is the festival’s own.
-- `images/summer-route-2027.png` — summer route map
 - `images/programme-poster-2027.jpg` — 2027 poster
+- `images/halls/musikverein-performance.webp`, `musikverein-bow.webp`, and `musikverein-exterior.webp` — the festival’s own Golden Hall photographs. Leave `credit` empty on those cards.
 - `images/halls/` — one freely licensed photograph for each confirmed hall, with the credit stored on that card
 - `logo 1.mp4` — the film in the About section (`about.video`)
 
 To use a new picture: upload the file into the repository (the `images/` folder is the simplest place), commit it, and set the path in `programme.js`, for example `"images/my-photo.jpg"`. Paths are from the site root, not from your computer.
 
-The three About numbers are calculated. Sessions = how many session blocks there are. Cities = how many different city names appear. Year = `year`. The words next to those numbers are `about.stats` (`sessions`, `cities`, `year`).
+The line under the opening sentence is `about.factsLine`. It should not count sessions, cities, or concerts. The page currently uses `Route · 2027`.
 
 The page is a light editorial layout. `"theme"` is ignored, so you do not set a card colour.
 
@@ -105,7 +105,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 - `hero`、`about`、`tagline`、`bond`、`contact`：主要句子。
 - `sessions`：每一场一个大括号。`tag` 是角标，`titleLines` 是标题的每一行，`dateLabel` 是日期，`cities` 是按顺序排列的城市，`description` 是短介绍，`highlights` 是要列出的场馆和日期。
 - `events`：每个场馆或城市一张卡片。`when` 里可以换行。`description` 是地名下面的短介绍。没有照片时把 `image` 写成 `""`。有照片时请保留 `credit`（作者、许可和链接），页面会在卡片下显示这一行，不要删掉。米尔茨楚施拉格和布拉迪斯拉发在场馆确认之前，不要自行补上场馆名称。
-- `map`、`poster`：路线图和节目海报。
+- `poster`：节目大标题、海报图片，以及标题下的短句。日期和场馆列表来自每一场的 `dateLabel` 和 `highlights`。
 - `venuePhotos`：额外的场馆照片。写成空列表 `[]` 就会隐藏这一块。
 - `nav`：页脚链接。
 
@@ -113,14 +113,14 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 
 - `logo` — 页眉标志，目前是 `images/mme-logo.svg`
 - `hero.image` — 大封面照片。`hero.imagePosition` 调整裁切位置（例如 `center 42%`）。如果是音乐节自己的照片，把 `hero.credit` 留空。
-- `images/summer-route-2027.png` — 夏季路线图
 - `images/programme-poster-2027.jpg` — 2027 海报
+- `images/halls/musikverein-performance.webp`、`musikverein-bow.webp`、`musikverein-exterior.webp` — 音乐节自己的金色大厅照片。这些卡片的 `credit` 留空。
 - `images/halls/` — 每个已确认场馆各一张可自由使用的照片，署名写在对应卡片的 `credit` 里
 - `logo 1.mp4` — 「关于」一节里的影片（`about.video`）
 
 换新图片：先把文件上传到仓库（放在 `images/` 最省事）并提交，再在 `programme.js` 里写路径，例如 `"images/my-photo.jpg"`。路径从网站根目录算起，不要写自己电脑上的文件夹。
 
-「关于」里的三个数字是自动算的。场次数 = `sessions` 有几段。城市数 = 不重复的城市名有几个。年份 = `year`。数字旁边的文字在 `about.stats`（`sessions`、`cities`、`year`）。
+开场句子下面的一行是 `about.factsLine`。不要写成场次、城市或音乐会的数量。页面现在用的是 `Route · 2027`。
 
 页面是浅色的编辑式版式。`"theme"` 不起作用，不用设置卡片颜色。
 
