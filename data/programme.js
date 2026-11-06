@@ -72,6 +72,8 @@
       titleLines: each string is one line on the card. *asterisks* = gold italics.
       cities: shown as the route, in order.
       highlights: the practical lines (halls and dates). Do not invent a hall.
+      image: a landmark of one city on the route, not the concert hall.
+      Keep imageAlt and credit (author, licence, links) with that photograph.
     */
     sessions: [
       {
@@ -92,8 +94,16 @@
         ],
         enquireLabel: "Enquire about the Winter Session",
         mark: "XII",
-        image: "images/halls/croatian-national-theatre-zagreb.jpg",
-        imageAlt: "The auditorium of the Croatian National Theatre in Zagreb",
+        image: "images/route/zagreb-hnk-facade.webp",
+        imageAlt: "The Croatian National Theatre in Zagreb, seen across the square",
+        credit: {
+          author: "Diego Delso",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:Poco_a_poco",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Teatro_Nacional,_Zagreb,_Croacia,_2014-04-20,_DD_03.JPG",
+        },
       },
       {
         theme: "b",
@@ -111,8 +121,16 @@
         ],
         enquireLabel: "Enquire about Spain & France",
         mark: "XIII",
-        image: "images/halls/petit-palau-barcelona.jpg",
-        imageAlt: "Petit Palau in Barcelona",
+        image: "images/route/barcelona-sagrada-familia-distant.webp",
+        imageAlt: "The Sagrada Família in Barcelona, seen from a distance",
+        credit: {
+          author: "Julian Lupyan",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:Julian_Lupyan",
+          licence: "CC0",
+          licenceUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Sagrada_Fam%C3%ADlia,_Barcelona.jpg",
+        },
       },
       {
         theme: "a",
@@ -132,8 +150,16 @@
         ],
         enquireLabel: "Enquire about Western Europe",
         mark: "XIII",
-        image: "images/halls/muziekgebouw-amsterdam.jpg",
-        imageAlt: "The concert hall of Muziekgebouw aan 't IJ in Amsterdam",
+        image: "images/route/paris-eiffel-trocadero.webp",
+        imageAlt: "The Eiffel Tower in Paris, seen from the Trocadéro",
+        credit: {
+          author: "NonOmnisMoriar",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:NonOmnisMoriar",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Eiffel_tower_from_trocadero.jpg",
+        },
       },
       {
         theme: "b",
@@ -153,8 +179,16 @@
         ],
         enquireLabel: "Enquire about Eastern Europe",
         mark: "XIII",
-        image: "images/halls/musikverein-bow.webp",
-        imageAlt: "A youth orchestra taking a bow on the stage of the Musikverein, Vienna",
+        image: "images/route/vienna-musikverein-karlsplatz.webp",
+        imageAlt: "The Wiener Musikverein in Vienna, seen from across the street",
+        credit: {
+          author: "C.Stadler/Bwag",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:Bwag",
+          licence: "CC BY-SA 4.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Wien_-_Haus_des_Wiener_Musikvereins_(2).JPG",
+        },
       },
     ],
 

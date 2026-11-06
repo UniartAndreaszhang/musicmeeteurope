@@ -48,6 +48,7 @@ Pictures already in the repository:
 - `images/programme-poster-2027.jpg` — 2027 poster
 - `images/halls/musikverein-performance.webp` and `musikverein-bow.webp` — the festival’s own Golden Hall photographs. Leave `credit` empty on those cards.
 - `images/halls/` — one freely licensed photograph for each confirmed hall, with the credit stored on that card
+- `images/route/` — landmark photographs on the Route cards, each with its own `credit` on that session
 - `logo 1.mp4` — the film in the About section (`about.video`)
 
 To use a new picture: upload the file into the repository (the `images/` folder is the simplest place), commit it, and set the path in `programme.js`, for example `"images/my-photo.jpg"`. Paths are from the site root, not from your computer.
@@ -56,7 +57,7 @@ The line under the opening sentence is `about.factsLine`. It should not count se
 
 The page is a light editorial layout. `"theme"` is ignored, so you do not set a card colour.
 
-Italics: put the words between asterisks, as in `*Vienna*`. Do not type HTML tags; they are shown as text. A session may also have `image` and `imageAlt`; use a picture already credited on a hall card.
+Italics: put the words between asterisks, as in `*Vienna*`. Do not type HTML tags; they are shown as text. A session may also have `image`, `imageAlt`, and `credit`. On the Route cards that picture is a city landmark, not the concert hall. Keep the credit (author, licence, and links). Hall names stay in `highlights`.
 
 To add a session, copy one whole block from `{` through `}`, including the comma, and edit the copy. Two or three cities look best on a card.
 
@@ -116,6 +117,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 - `images/programme-poster-2027.jpg` — 2027 海报
 - `images/halls/musikverein-performance.webp`、`musikverein-bow.webp` — 音乐节自己的金色大厅照片。这些卡片的 `credit` 留空。
 - `images/halls/` — 每个已确认场馆各一张可自由使用的照片，署名写在对应卡片的 `credit` 里
+- `images/route/` — 路线卡片上的城市地标照片，每一场的 `credit` 单独署名
 - `logo 1.mp4` — 「关于」一节里的影片（`about.video`）
 
 换新图片：先把文件上传到仓库（放在 `images/` 最省事）并提交，再在 `programme.js` 里写路径，例如 `"images/my-photo.jpg"`。路径从网站根目录算起，不要写自己电脑上的文件夹。
@@ -124,7 +126,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 
 页面是浅色的编辑式版式。`"theme"` 不起作用，不用设置卡片颜色。
 
-斜体：把词语放在两个星号中间，例如 `*Vienna*`。不要写 HTML 标签，它们会按普通文字显示。一场也可以有 `image` 和 `imageAlt`；请用已经在场馆卡片上署过名的照片。
+斜体：把词语放在两个星号中间，例如 `*Vienna*`。不要写 HTML 标签，它们会按普通文字显示。一场也可以有 `image`、`imageAlt` 和 `credit`。路线卡片上的图片是城市地标，不是音乐厅。请保留署名（作者、许可和链接）。场馆名称仍写在 `highlights` 里。
 
 增加一场：复制一整段，从 `{` 到 `}`，连同逗号，再改内容。一张卡片放两到三个城市最合适。
 
