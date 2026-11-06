@@ -56,7 +56,7 @@ a { color: inherit; }
   color: #fff; background: #1c1c1c; overflow: hidden;
 }
 section[id] { scroll-margin-top: 4.6rem; }
-.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 .hero-shade {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.38) 26%, rgba(0,0,0,.08) 52%, rgba(0,0,0,.18) 100%);
@@ -135,7 +135,7 @@ section[id] { scroll-margin-top: 4.6rem; }
 .teaser-text { color: var(--red); font-size: .95rem; line-height: 1.45; }
 .teaser-points { list-style: none; margin-top: .55rem; }
 .teaser-points li { color: #333; margin-top: .2rem; }
-.teaser-photos { display: grid; gap: .45rem; }
+.teaser-photos { display: block; }
 .teaser-photos img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; background: #f3f3f3; }
 .more {
   display: inline-block; margin-top: .75rem;
@@ -165,17 +165,7 @@ section[id] { scroll-margin-top: 4.6rem; }
   margin-bottom: .6rem;
 }
 .programme-lead { color: #333; font-size: 1.12rem; max-width: 40rem; margin-bottom: .4rem; }
-.programme-layout {
-  display: grid; grid-template-columns: 1.15fr .85fr;
-  gap: 2.2rem 2.8rem; align-items: start; margin-top: 1.8rem;
-}
-.programme-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 2rem; }
-.programme-list h3 {
-  color: var(--red); font-size: 1.35rem; font-weight: 600;
-  letter-spacing: -0.02em; margin: .15rem 0 .45rem;
-}
-.programme-list ul { list-style: none; }
-.programme-list li { color: #1a1a1a; margin-top: .28rem; }
+.programme-poster { width: 100%; margin-top: 1.6rem; }
 .programme-poster img { width: 100%; height: auto; display: block; }
 
 .contact { padding-bottom: 4rem; }
@@ -229,7 +219,6 @@ section[id] { scroll-margin-top: 4.6rem; }
   .hero h1 { max-width: 7.2em; }
   .intro { padding-top: 2.8rem; }
   .programme h2 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .programme-layout, .programme-list { grid-template-columns: 1fr; }
   .site-header { padding: .75rem 5vw; }
   .brand img { height: 44px; }
   .hero-credit { align-self: stretch; text-align: left; margin: 0; padding: 0 6vw .9rem; max-width: none; }
@@ -290,12 +279,8 @@ section[id] { scroll-margin-top: 4.6rem; }
   <div class="wrap">
     <p class="eyebrow" id="poster-eyebrow"></p>
     <h2 id="poster-title"></h2>
-    <p class="programme-lead" id="poster-caption"></p>
-    <div class="programme-layout">
-      <div class="programme-list" id="programme-list"></div>
-      <div class="programme-poster" id="poster-media"></div>
-    </div>
   </div>
+  <div class="programme-poster" id="poster-media"></div>
 </section>
 
 <section class="section contact" id="contact">
@@ -493,11 +478,7 @@ section[id] { scroll-margin-top: 4.6rem; }
     });
     var enquire = programme.enquireLabel || "Enquire";
     document.getElementById("events-grid").innerHTML = halls.map(function (event) {
-      var photos = '<div class="teaser-photos"><img src="' + escapeHtml(asset(event.image)) + '" alt="' + escapeHtml(event.imageAlt || event.title || "") + '">';
-      if (event.secondaryImage) {
-        photos += '<img src="' + escapeHtml(asset(event.secondaryImage)) + '" alt="' + escapeHtml(event.secondaryImageAlt || "") + '">';
-      }
-      photos += "</div>";
+      var photos = '<img src="' + escapeHtml(asset(event.image)) + '" alt="' + escapeHtml(event.imageAlt || event.title || "") + '">';
       return '<article class="teaser">' + photos +
         '<p class="teaser-kicker">' + rich(event.when || "") + "</p>" +
         '<h3>' + escapeHtml(event.title || "") + "</h3>" +
@@ -527,14 +508,6 @@ section[id] { scroll-margin-top: 4.6rem; }
     var poster = programme.poster || {};
     document.getElementById("poster-eyebrow").textContent = poster.eyebrow || "";
     document.getElementById("poster-title").innerHTML = rich(poster.title || "");
-    document.getElementById("poster-caption").textContent = poster.caption || "";
-    document.getElementById("programme-list").innerHTML = (programme.sessions || []).map(function (session) {
-      var lines = (session.highlights || []).map(function (line) {
-        return "<li>" + escapeHtml(line) + "</li>";
-      }).join("");
-      return "<article><p class=\"eyebrow\">" + escapeHtml(session.tag || "") + "</p>" +
-        "<h3>" + escapeHtml(session.dateLabel || "") + "</h3><ul>" + lines + "</ul></article>";
-    }).join("");
     document.getElementById("poster-media").innerHTML = poster.image
       ? '<img src="' + escapeHtml(asset(poster.image)) + '" alt="' + escapeHtml(poster.alt || "") + '">'
       : "";

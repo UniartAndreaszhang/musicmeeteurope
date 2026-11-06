@@ -39,7 +39,7 @@
       editionNote: "2027 programme",
       image: "images/hero-musikverein.webp",
       imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
-      imagePosition: "center 42%",
+      imagePosition: "center center",
     },
 
     about: {
@@ -163,7 +163,7 @@
       title: "The 2027 *programme*",
       image: "images/programme-poster-2027.jpg",
       alt: "Poster of Music Meets Europe 2027: Winter Session 28–31 January in Zagreb, Mürzzuschlag and Vienna; Spain and France 13–18 July; Western Europe 14–18 July; Eastern Europe 29 July–1 August.",
-      caption: "Dates and confirmed halls. Mürzzuschlag and Bratislava are cities on the route; a hall is not confirmed there yet.",
+      caption: "",
     },
 
     eventsIntro: {
@@ -285,8 +285,6 @@
         description: "The Großer Saal of the Musikverein in Vienna. Winter Session, 28–31 January, and Eastern Europe, 31 July – 1 August.",
         image: "images/halls/musikverein-performance.webp",
         imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
-        secondaryImage: "images/halls/musikverein-exterior.webp",
-        secondaryImageAlt: "The Musikverein building on Karlsplatz, Vienna",
       },
     ],
 
