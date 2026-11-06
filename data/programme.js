@@ -8,18 +8,20 @@
   - Edit the words inside quotes. Keep the quotes, commas, and brackets.
   - A comma after the last item in a list is fine.
   - Do not delete the line that says: root.MME_PROGRAMME
-  - Text between *asterisks* is shown in gold italics, for example *Vienna*.
+  - Text between *asterisks* is shown in italics, for example *Vienna*.
   - HTML tags are not read as code; they show up as plain text.
   - Image paths start from the site root (the folder that contains index.html),
-    for example "images/petit-palau-stage.jpg".
+    for example "images/halls/petit-palau-barcelona.jpg".
     Upload the picture to the repository first, then put its path here.
-  - theme "a" is a gold card. theme "b" is a blue card.
-  - The three numbers in About (sessions, cities, year) are counted from
-    this file. Change `year` and the `sessions` list; do not type those totals.
+  - theme is kept so older notes still parse. The page does not use it for colour.
+  - Do not write a count of sessions, cities, or concerts. The line under the
+    hero is `about.factsLine` (for example "Route · 2027").
 */
 (function (root) {
   root.MME_PROGRAMME = {
     festival: "Music Meets Europe",
+    /* Horizontal logo in the header. SVG stays sharp on the white bar. */
+    logo: "images/mme-logo.svg",
     year: 2027,
     established: 2011,
     contactEmail: "info@musicmeetseurope.eu",
@@ -35,6 +37,9 @@
       titleEm: "Meets Europe",
       subtitle: "Music connecting generations and cultures — a bond of friendship and exchange.",
       editionNote: "2027 programme",
+      image: "images/hero-musikverein.webp",
+      imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
+      imagePosition: "center 42%",
     },
 
     about: {
@@ -42,22 +47,24 @@
       title: "A bond of *friendship* and exchange",
       paragraphs: [
         "Music Meets Europe brings musicians of different generations and cultures onto the same stage. What begins as a concert becomes a bond of friendship and exchange.",
-        "In 2027 the festival meets four times. The 12th Music Meets Europe is a winter session through Zagreb, Mürzzuschlag and Vienna. The 13th Music Meets Europe continues in summer: Spain and France, Western Europe, and Eastern Europe.",
+        "In 2027 the route runs from a winter journey through Zagreb, Mürzzuschlag and Vienna into the summer: Spain and France, Western Europe, and Eastern Europe.",
       ],
       video: "logo 1.mp4",
       badge: { value: "’27", label: "Programme" },
-      stats: { sessions: "Sessions", cities: "Cities", year: "Year" },
+      factsLine: "Route · 2027",
     },
 
     nav: [
       { label: "About", href: "#about" },
-      { label: "Sessions", href: "#routes" },
-      { label: "Stages", href: "#events" },
+      { label: "Route", href: "#routes" },
+      { label: "Halls", href: "#events" },
+      { label: "Programme", href: "#poster" },
+      { label: "Contact", href: "#contact" },
     ],
 
     sessionsIntro: {
-      eyebrow: "2027 programme",
-      title: "Four *sessions* across Europe",
+      eyebrow: "2027",
+      title: "Route",
     },
 
     /*
@@ -70,7 +77,7 @@
       {
         theme: "a",
         tag: "12th · Winter Session",
-        titleLines: ["Zagreb · Mürzzuschlag", "*· Vienna*"],
+        titleLines: ["Zagreb · Mürzzuschlag · Vienna"],
         dateLabel: "28–31 January 2027",
         cities: [
           { name: "Zagreb", country: "Croatia" },
@@ -85,11 +92,13 @@
         ],
         enquireLabel: "Enquire about the Winter Session",
         mark: "XII",
+        image: "images/halls/croatian-national-theatre-zagreb.jpg",
+        imageAlt: "The auditorium of the Croatian National Theatre in Zagreb",
       },
       {
         theme: "b",
         tag: "13th · Spain & France",
-        titleLines: ["Barcelona", "*· Paris*"],
+        titleLines: ["Barcelona · Paris"],
         dateLabel: "13–18 July 2027",
         cities: [
           { name: "Barcelona", country: "Spain" },
@@ -102,11 +111,13 @@
         ],
         enquireLabel: "Enquire about Spain & France",
         mark: "XIII",
+        image: "images/halls/petit-palau-barcelona.jpg",
+        imageAlt: "Petit Palau in Barcelona",
       },
       {
         theme: "a",
         tag: "13th · Western Europe",
-        titleLines: ["Amsterdam · Brussels", "*· Paris*"],
+        titleLines: ["Amsterdam · Brussels · Paris"],
         dateLabel: "14–18 July 2027",
         cities: [
           { name: "Amsterdam", country: "Netherlands" },
@@ -121,11 +132,13 @@
         ],
         enquireLabel: "Enquire about Western Europe",
         mark: "XIII",
+        image: "images/halls/muziekgebouw-amsterdam.jpg",
+        imageAlt: "The concert hall of Muziekgebouw aan 't IJ in Amsterdam",
       },
       {
         theme: "b",
         tag: "13th · Eastern Europe",
-        titleLines: ["Zagreb · Bratislava", "*· Vienna*"],
+        titleLines: ["Zagreb · Bratislava · Vienna"],
         dateLabel: "29 July – 1 August 2027",
         cities: [
           { name: "Zagreb", country: "Croatia" },
@@ -140,28 +153,23 @@
         ],
         enquireLabel: "Enquire about Eastern Europe",
         mark: "XIII",
+        image: "images/halls/musikverein-bow.webp",
+        imageAlt: "A youth orchestra taking a bow on the stage of the Musikverein, Vienna",
       },
     ],
-
-    map: {
-      eyebrow: "Festival map",
-      title: "Summer *route*",
-      image: "images/summer-route-2027.png",
-      alt: "Summer 2027 route map: 1 Barcelona 13 July, 2 Amsterdam 14 July, 3 Brussels 16 July, 4 Paris 18 July, 5 Zagreb 29 July, 6 Vienna 31 July to 1 August.",
-      caption: "13 July – 1 August 2027, from Barcelona to Vienna. The January winter session is the first card above; it is not drawn on this map.",
-    },
 
     poster: {
       eyebrow: "At a glance",
       title: "The 2027 *programme*",
       image: "images/programme-poster-2027.jpg",
       alt: "Poster of Music Meets Europe 2027: Winter Session 28–31 January in Zagreb, Mürzzuschlag and Vienna; Spain and France 13–18 July; Western Europe 14–18 July; Eastern Europe 29 July–1 August.",
-      caption: "The same sessions, dates and halls as the cards on this page.",
+      caption: "Dates and confirmed halls. Mürzzuschlag and Bratislava are cities on the route; a hall is not confirmed there yet.",
     },
 
     eventsIntro: {
-      eyebrow: "Stages and stops",
+      eyebrow: "Stages",
       title: "Where the music *is heard*",
+      pendingTitle: "Stops still to be confirmed",
     },
 
     /*
@@ -275,16 +283,10 @@
         title: "Musikverein, Golden Hall",
         location: "Vienna, Austria",
         description: "The Großer Saal of the Musikverein in Vienna. Winter Session, 28–31 January, and Eastern Europe, 31 July – 1 August.",
-        image: "images/halls/musikverein-golden-hall.jpg",
-        imageAlt: "The Golden Hall of the Musikverein in Vienna, looking toward the organ",
-        credit: {
-          author: "Clemens Pfeiffer",
-          authorUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
-          licence: "CC BY-SA 3.0",
-          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
-          sourceName: "Wikimedia Commons",
-          sourceUrl: "https://commons.wikimedia.org/wiki/File:Musikverein_Goldener_Saal.jpg",
-        },
+        image: "images/halls/musikverein-performance.webp",
+        imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
+        secondaryImage: "images/halls/musikverein-exterior.webp",
+        secondaryImageAlt: "The Musikverein building on Karlsplatz, Vienna",
       },
     ],
 
