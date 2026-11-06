@@ -72,6 +72,8 @@
       titleLines: each string is one line on the card. *asterisks* = gold italics.
       cities: shown as the route, in order.
       highlights: the practical lines (halls and dates). Do not invent a hall.
+      image: a landmark of one city on the route, not the concert hall.
+      Keep imageAlt and credit (author, licence, links) with that photograph.
     */
     sessions: [
       {
@@ -92,8 +94,16 @@
         ],
         enquireLabel: "Enquire about the Winter Session",
         mark: "XII",
-        image: "images/halls/croatian-national-theatre-zagreb.jpg",
-        imageAlt: "The auditorium of the Croatian National Theatre in Zagreb",
+        image: "images/route/zagreb-st-marks.webp",
+        imageAlt: "St. Mark's Church in Zagreb, with its tiled roof of coats of arms",
+        credit: {
+          author: "Bernard Gagnon",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:Bgag",
+          licence: "CC BY-SA 4.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:St._Mark%27s_Church,_Zagreb_02.jpg",
+        },
       },
       {
         theme: "b",
@@ -111,8 +121,16 @@
         ],
         enquireLabel: "Enquire about Spain & France",
         mark: "XIII",
-        image: "images/halls/petit-palau-barcelona.jpg",
-        imageAlt: "Petit Palau in Barcelona",
+        image: "images/route/barcelona-casa-batllo.webp",
+        imageAlt: "The facade of Casa Batlló in Barcelona",
+        credit: {
+          author: "Mstyslav Chernov",
+          authorUrl: "http://mstyslav-chernov.com/",
+          licence: "CC BY-SA 3.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/3.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Casa_Batll%C3%B3_(Antoni_Gaudi)_(exterior),_43,_Passeig_de_Gr%C3%A0cia,_Eixample,_Barcelona,_Catalonia,_Spain.jpg",
+        },
       },
       {
         theme: "a",
@@ -132,8 +150,16 @@
         ],
         enquireLabel: "Enquire about Western Europe",
         mark: "XIII",
-        image: "images/halls/muziekgebouw-amsterdam.jpg",
-        imageAlt: "The concert hall of Muziekgebouw aan 't IJ in Amsterdam",
+        image: "images/route/amsterdam-canals.webp",
+        imageAlt: "Canal houses along a canal in Amsterdam",
+        credit: {
+          author: "Tobias Niepel",
+          authorUrl: "https://www.flickr.com/people/141644124@N06",
+          licence: "CC BY 2.0",
+          licenceUrl: "https://creativecommons.org/licenses/by/2.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Houses_and_canals_in_Amsterdam_(26277425215).jpg",
+        },
       },
       {
         theme: "b",
@@ -153,8 +179,16 @@
         ],
         enquireLabel: "Enquire about Eastern Europe",
         mark: "XIII",
-        image: "images/halls/musikverein-bow.webp",
-        imageAlt: "A youth orchestra taking a bow on the stage of the Musikverein, Vienna",
+        image: "images/route/vienna-stephansdom.webp",
+        imageAlt: "St. Stephen's Cathedral in Vienna",
+        credit: {
+          author: "Rafa Esteve",
+          authorUrl: "https://commons.wikimedia.org/wiki/User:Rafesmar",
+          licence: "CC BY-SA 4.0",
+          licenceUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+          sourceName: "Wikimedia Commons",
+          sourceUrl: "https://commons.wikimedia.org/wiki/File:Wien_-_Stephansdom_-_Exterior_01_-_2018-08-23.jpg",
+        },
       },
     ],
 
