@@ -37,7 +37,7 @@ What to edit:
 - `hero`, `about`, `tagline`, `bond`, `contact` — the sentences.
 - `sessions` — one block per session. Each block has the label (`tag`), the lines of the title (`titleLines`), the date line (`dateLabel`), the cities in order, a short `description`, and `highlights` (the halls and dates you want listed).
 - `events` — one card per hall or city. `when` may contain a line break. `description` is the short text under the place name. Set `image` to `""` when you have no photograph. If there is a photograph, keep the `credit` block (author, licence, and links). The page prints it under the card. Do not remove it, and do not add a hall name for Mürzzuschlag or Bratislava until one is confirmed.
-- `poster` — the programme heading and the large poster picture beneath it.
+- `poster` — the programme heading and the poster picture beneath it. The picture is centered and capped at about 760px on a wide screen, and full width on a phone.
 - `venuePhotos` — extra hall photographs. An empty list hides that block.
 - `nav` — the footer links.
 
@@ -105,7 +105,7 @@ Wix 网站上那句「举办了九届」以及「2026 年 8 月 2 日至 7 日�
 - `hero`、`about`、`tagline`、`bond`、`contact`：主要句子。
 - `sessions`：每一场一个大括号。`tag` 是角标，`titleLines` 是标题的每一行，`dateLabel` 是日期，`cities` 是按顺序排列的城市，`description` 是短介绍，`highlights` 是要列出的场馆和日期。
 - `events`：每个场馆或城市一张卡片。`when` 里可以换行。`description` 是地名下面的短介绍。没有照片时把 `image` 写成 `""`。有照片时请保留 `credit`（作者、许可和链接），页面会在卡片下显示这一行，不要删掉。米尔茨楚施拉格和布拉迪斯拉发在场馆确认之前，不要自行补上场馆名称。
-- `poster`：节目大标题，以及标题下方的大幅海报。
+- `poster`：节目大标题，以及标题下方的海报。宽屏上图片居中，宽度大约不超过 760 像素；手机上为全宽。
 - `venuePhotos`：额外的场馆照片。写成空列表 `[]` 就会隐藏这一块。
 - `nav`：页脚链接。
 
