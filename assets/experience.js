@@ -51,7 +51,7 @@
   siblings.forEach(el=>el.inert=true); document.body.append(overlay);
   const previous=document.activeElement; overlay.querySelector('button').focus({preventScroll:true});
   let done=false;
-  function finish(immediate){if(done)return;done=true;try{sessionStorage.setItem('mme-intro-seen','1');}catch(_){} overlay.classList.add('opening');setTimeout(()=>{overlay.remove();siblings.forEach(el=>el.inert=false);if(previous&&previous.focus)previous.focus({preventScroll:true});},immediate?0:1050);document.removeEventListener('keydown',key);}
+  function finish(immediate){if(done)return;done=true;try{sessionStorage.setItem('mme-intro-seen','1');}catch(_){} overlay.classList.add('opening');setTimeout(()=>{overlay.remove();siblings.forEach(el=>el.inert=false);if(previous&&previous.focus)previous.focus({preventScroll:true});},immediate?0:1450);document.removeEventListener('keydown',key);}
   function key(e){if(e.key==='Escape')finish(true);if(e.key==='Tab'){e.preventDefault();overlay.querySelector('button').focus();}}
   document.addEventListener('keydown',key);overlay.querySelector('button').onclick=()=>finish(true);setTimeout(()=>finish(false),1600);
 })();
