@@ -1,0 +1,25 @@
+.header-tools { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+.registration-link { display:inline-block; background:var(--accent,#2456a6); color:#fff; padding:.65rem 1rem; text-decoration:none; font-weight:600; font-size:.88rem; border-radius:3px; }
+.registration-link:hover { background:#102d57; }
+.language-tools { position:relative; font:500 .8rem 'Manrope',Arial,sans-serif; color:#172e4d; }
+.language-tools select { max-width:150px; border:1px solid #dbe4f1; border-radius:3px; padding:.55rem; background:#fff; color:#172e4d; font:inherit; }
+.translation-panel { position:absolute; right:0; top:100%; width:255px; background:white; padding:1rem; border:1px solid #dbe4f1; box-shadow:0 8px 24px #102d5714; z-index:40; }
+.translation-panel[hidden] { display:none; }
+.translation-panel p { margin:.5rem 0; font-size:.76rem; }
+.translation-panel a { color:#2456a6; }
+.translation-panel button { border:0; background:none; color:#2456a6; cursor:pointer; margin-top:.5rem; }
+.mme-intro { position:fixed; inset:0; z-index:99999; overflow:hidden; pointer-events:auto; }
+.mme-intro::before,.mme-intro::after { content:''; position:absolute; top:0; bottom:0; width:50.1%; background:#f7f9fd; transition:transform 1s cubic-bezier(.65,0,.25,1); }
+.mme-intro::before { left:0; border-right:1px solid #dbe4f1; }
+.mme-intro::after { right:0; }
+.mme-intro-center { position:absolute; top:min(30vh,240px); left:50%; transform:translateX(-50%); width:min(76vw,440px); text-align:center; transition:opacity .4s,transform .6s; }
+.mme-intro-center img { width:100%; max-height:200px; }
+.mme-intro-center p { font:500 .75rem 'Manrope',Arial,sans-serif; letter-spacing:.18em; color:#536780; margin-top:2rem; text-transform:uppercase; }
+.mme-intro-skip { position:absolute; top:24px; right:24px; border:1px solid #dbe4f1; background:white; color:#172e4d; padding:.6rem 1rem; cursor:pointer; border-radius:3px; }
+.mme-intro.opening::before { transform:translateX(-100%); }
+.mme-intro.opening::after { transform:translateX(100%); }
+.mme-intro.opening .mme-intro-center { opacity:0; transform:translateX(-50%) scale(1.04); }
+.mme-intro.opening .mme-intro-skip { opacity:0; }
+@media(max-width:1100px) { .site-header { gap:.9rem; } .header-tools { gap:.7rem; } }
+@media(max-width:700px) { .header-tools { width:100%; justify-content:space-between; } .nav-list { gap:.35rem 1rem; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .mme-intro { display:none; } }
