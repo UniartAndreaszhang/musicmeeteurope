@@ -8,17 +8,13 @@
 .translation-panel p { margin:.5rem 0; font-size:.76rem; }
 .translation-panel a { color:#2456a6; }
 .translation-panel button { border:0; background:none; color:#2456a6; cursor:pointer; margin-top:.5rem; }
-.mme-intro { position:fixed; inset:0; z-index:99999; overflow:hidden; pointer-events:auto; }
-.mme-intro::before,.mme-intro::after { content:''; position:absolute; top:0; bottom:0; width:50.1%; background:#f7f9fd; transition:transform 1s cubic-bezier(.65,0,.25,1); }
-.mme-intro::before { left:0; border-right:1px solid #dbe4f1; }
-.mme-intro::after { right:0; }
-.mme-intro-center { position:absolute; top:min(30vh,240px); left:50%; transform:translateX(-50%); width:min(76vw,440px); text-align:center; transition:opacity .4s,transform .6s; }
-.mme-intro-center img { width:100%; max-height:200px; }
-.mme-intro-center p { font:500 .75rem 'Manrope',Arial,sans-serif; letter-spacing:.18em; color:#536780; margin-top:2rem; text-transform:uppercase; }
-.mme-intro-skip { position:absolute; top:24px; right:24px; border:1px solid #dbe4f1; background:white; color:#172e4d; padding:.6rem 1rem; cursor:pointer; border-radius:3px; }
-.mme-intro.opening::before { transform:translateX(-100%); }
-.mme-intro.opening::after { transform:translateX(100%); }
-.mme-intro.opening .mme-intro-center { opacity:0; transform:translateX(-50%) scale(1.04); }
+.mme-intro { position:fixed; inset:0; z-index:99999; overflow:hidden; pointer-events:auto; background:#f7f9fd; opacity:1; transition:opacity 1.4s cubic-bezier(.22,1,.36,1); }
+.mme-intro-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(76vw,440px); text-align:center; transition:opacity 1.1s ease,transform 1.4s cubic-bezier(.22,1,.36,1); }
+.mme-intro-center img { display:block; width:100%; max-height:200px; object-fit:contain; }
+.mme-intro-center p { position:absolute; top:100%; left:0; width:100%; font:500 .75rem 'Manrope',Arial,sans-serif; letter-spacing:.18em; color:#536780; margin-top:2rem; text-transform:uppercase; }
+.mme-intro-skip { position:absolute; top:24px; right:24px; border:1px solid #dbe4f1; background:white; color:#172e4d; padding:.6rem 1rem; cursor:pointer; border-radius:3px; transition:opacity .6s ease; }
+.mme-intro.opening { opacity:0; }
+.mme-intro.opening .mme-intro-center { opacity:0; transform:translate(-50%,-50%) scale(1.025); }
 .mme-intro.opening .mme-intro-skip { opacity:0; }
 @media(max-width:1100px) { .site-header { gap:.9rem; } .header-tools { gap:.7rem; } }
 @media(max-width:700px) { .header-tools { width:100%; justify-content:space-between; } .nav-list { gap:.35rem 1rem; } }
