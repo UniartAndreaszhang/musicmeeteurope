@@ -49,9 +49,18 @@
   overlay.innerHTML='<div class="mme-intro-center"><img src="images/mme-logo.svg" alt="Music Meets Europe"><p>A bond of friendship and exchange</p></div><button class="mme-intro-skip" type="button">Skip intro</button>';
   const siblings=[...document.body.children].filter(el=>!['SCRIPT','STYLE'].includes(el.tagName)&&!el.inert);
   siblings.forEach(el=>el.inert=true); document.body.append(overlay);
+  // Center within the visible portion of the Wix iframe, not its oversized canvas.
+  const visibleCenter=new IntersectionObserver(entries=>{
+    const r=entries[0].intersectionRect;
+    if(r.width&&r.height){
+      overlay.style.setProperty('--intro-center-x',(r.left+r.width/2)+'px');
+      overlay.style.setProperty('--intro-center-y',(r.top+r.height/2)+'px');
+    }
+  },{threshold:[0,.25,.5,.75,1]});
+  visibleCenter.observe(overlay);
   const previous=document.activeElement; overlay.querySelector('button').focus({preventScroll:true});
   let done=false;
-  function finish(immediate){if(done)return;done=true;try{sessionStorage.setItem('mme-intro-seen','1');}catch(_){} overlay.classList.add('opening');setTimeout(()=>{overlay.remove();siblings.forEach(el=>el.inert=false);if(previous&&previous.focus)previous.focus({preventScroll:true});},immediate?0:1450);document.removeEventListener('keydown',key);}
+  function finish(immediate){if(done)return;done=true;try{sessionStorage.setItem('mme-intro-seen','1');}catch(_){} overlay.classList.add('opening');setTimeout(()=>{visibleCenter.disconnect();overlay.remove();siblings.forEach(el=>el.inert=false);if(previous&&previous.focus)previous.focus({preventScroll:true});},immediate?0:1450);document.removeEventListener('keydown',key);}
   function key(e){if(e.key==='Escape')finish(true);if(e.key==='Tab'){e.preventDefault();overlay.querySelector('button').focus();}}
   document.addEventListener('keydown',key);overlay.querySelector('button').onclick=()=>finish(true);setTimeout(()=>finish(false),1600);
 })();
