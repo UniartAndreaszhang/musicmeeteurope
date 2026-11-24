@@ -37,9 +37,9 @@
       titleEm: "Meets Europe",
       subtitle: "Music connecting generations and cultures — a bond of friendship and exchange.",
       editionNote: "2027 programme",
-      image: "images/hero-musikverein.webp",
-      imageAlt: "Orchestra and choir performing in the Golden Hall of the Musikverein, Vienna",
-      imagePosition: "center center",
+      image: "images/hero-amsterdam-2026.jpg",
+      imageAlt: "Orchestra and choirs on stage at the Music Meets Europe opening concert, Theater Amsterdam, 2026",
+      imagePosition: "center 60%",
     },
 
     about: {
